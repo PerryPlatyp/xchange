@@ -19,6 +19,7 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     minWidth: '800px',
+    backgroundColor: "transparent",
 
 
 }
@@ -145,12 +146,15 @@ const inpootsamount = {
 
 }
 const bstyle = {
+
     height: '50px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
     top: '10%',
+    
+    
 }
 
 const buttonspace = {
@@ -159,11 +163,14 @@ const buttonspace = {
     fontSize: '20px',
     fontWeight: 'bold',
     // make a minty green background
-    backgroundColor: '#98FF98',
+    backgroundColor: '#614bcc',
     borderRadius: '10px',
     border: 'none',
     // make text color grey
-    color: '#000',
+    color: '#fff',
+    // add a colorful glow to the button
+    boxShadow: '0px 0px 20px #614bcc',
+    
 }
 
 function setshitto01(){
@@ -178,11 +185,16 @@ function redirect() {
     window.location.href = "/exchange?currency1=" + currencybegin + "&currency2=" + currencyend + "&c1amount=" + priceOfCurrencyBegin;
 }
 
+const fuckyou = {
+    position: "relative",
+    top: '7.5%',
+}
+
 export default function Exchagnebox() {
     
     
     return (
-        <div>
+        <div style={fuckyou}>
 
         
         <div style={style}>
@@ -228,10 +240,11 @@ export default function Exchagnebox() {
 
         <div>
 
-        </div>
+
             <div style={bstyle}>
                 <button style={buttonspace} onClick={redirect}>Exchange</button>
             </div>
+        </div>
         </div>
     )
 }

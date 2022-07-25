@@ -27,6 +27,10 @@ const fa = {
 const getStartewd = {
     height: '50px',
     width: '100px',
+    backgroundColor: '#614bcc',
+    borderRadius: '10px',
+    border: 'none',
+    fontWeight: 'bold',
 
 }
 

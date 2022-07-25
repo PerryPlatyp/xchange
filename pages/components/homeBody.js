@@ -22,7 +22,11 @@ const text = {
     fontWeight: 'bold',
 }
 
-
+const kys = {
+    color: "#614bcc",
+    // add a glow effect to the text
+    textShadow: '0 0 10px #614bcc',
+}
 
 
 
@@ -33,7 +37,7 @@ export default function homeBody() {
             
             {/* Buy and sell shit */}
             <div>
-                <h1 style={h1}>Buy & Sell Crypto Instantly</h1>
+                <h1 style={h1}>The <span style={kys}>Defi</span> Exchange For The <span style={kys}>Future</span></h1>
                 <p style={text}>The most trusted cryptocurrency trading platform</p>
                 <p style={text}>No KYC · Low Fees · Community Driven</p>
             </div>
