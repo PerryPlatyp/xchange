@@ -170,6 +170,9 @@ const buttonspace = {
     color: '#fff',
     // add a colorful glow to the button
     boxShadow: '0px 0px 20px #614bcc',
+    // on hover, make the mouse pointer change to a hand
+    cursor: 'pointer',
+
     
 }
 
@@ -182,6 +185,10 @@ function redirect() {
     var currencybegin = document.getElementById("currency1").value;
     var currencyend = document.getElementById("currency2").value;
     var priceOfCurrencyBegin = document.getElementById("c1amount").value;
+    // if priceOfCurrencyBegin is empty, set it to 0
+    if (priceOfCurrencyBegin == "") {
+        priceOfCurrencyBegin = 0;
+    }
     window.location.href = "/exchange?currency1=" + currencybegin + "&currency2=" + currencyend + "&c1amount=" + priceOfCurrencyBegin;
 }
 
@@ -189,6 +196,11 @@ const fuckyou = {
     position: "relative",
     top: '7.5%',
 }
+
+function ft(){
+    document.getElementById("ass").style.cursor = "hand";
+}
+
 
 export default function Exchagnebox() {
     
@@ -242,7 +254,7 @@ export default function Exchagnebox() {
 
 
             <div style={bstyle}>
-                <button style={buttonspace} onClick={redirect}>Exchange</button>
+                <button style={buttonspace} onClick={redirect} onMouseEnter={ft} id="ass">Exchange</button>
             </div>
         </div>
         </div>
