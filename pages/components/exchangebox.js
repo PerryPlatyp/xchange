@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import btcLogo from "../../public/logo.png"
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
-const CoinGecko = require('coingecko-api');
 
 
 const style = {
@@ -62,20 +61,48 @@ const hstyle = {
 }
 
 
-function ExchangeBox() {
+async function ExchangeBox() {
     var currency1 = document.getElementById("currency1").value;
     var currency2 = document.getElementById("currency2").value;
-
+    
     var c1amount = document.getElementById("c1amount").value;
 
-    const client = new CoinGecko();
-    client.coins.fetchAll().then(response => {
-        console.log(response);
-    }
-    ).catch(error => {
-        console.log(error);
-    }
-    );
+    const link1 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency1 + "&vs_currencies=usd";
+    // make a fetch request to the link
+    var c1price = await fetch(link1)
+        .then(response => response.json())
+        .then(data => {
+            return data[currency1].usd;
+        }
+        )
+        .catch(error => {
+            console.log(error);
+        }
+        )
+
+
+    
+    const link2 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency2 + "&vs_currencies=usd";
+    // make a fetch request to the link
+    var c2price = await fetch(link2)
+        .then(response => response.json())
+        .then(data => {
+            return data[currency2].usd;
+        }
+        )
+        .catch(error => {
+            console.log(error);
+        }
+        )
+
+    
+    var c2amount = c1amount * c1price / c2price;
+    // only keep 6 decimal places
+    c2amount = c2amount.toFixed(6);
+    document.getElementById("c2amount").value = c2amount;
+    
+
+    
 
 
 }
@@ -111,32 +138,32 @@ export default function exchagnebox() {
 
         <div style={style}>
             <div style={inpootamount}>
-                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" />
+                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} />
             </div>
             <div className="dropbutton"style={fagstyle}>
                 <select name="" id="currency1" style={buttonstyle}>
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                    <option value="XRP">XRP</option>
-                    <option value="LTC">LTC</option>
+                    <option value="bitcoin">BTC</option>
+                    <option value="ethereum">ETH</option>
+                    <option value="ripple">XRP</option>
+                    <option value="litecoin">LTC</option>
                 </select>
             </div>
             <div style={hstyle}>
                 <BsFillArrowRightSquareFill size={30}/>
             </div>
             <div style={inpootamount}>
-                <input type="text" placeholder="Amount" style={inpootsamount} readOnly />
+                <input type="text" placeholder="Amount" id='c2amount' style={inpootsamount} readOnly />
             </div>
             <div className="dropbutton"style={fagstyle}>
                 <select name="" id="currency2" style={buttonstyle}>
-                    <option value="XMR">XMR</option>
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                    <option value="XRP">XRP</option>
-                    <option value="LTC">LTC</option>
+                    <option value="monero">XMR</option>
+                    <option value="bitcoin">BTC</option>
+                    <option value="ethereum">ETH</option>
+                    <option value="ripple">XRP</option>
+                    <option value="litecoin">LTC</option>
                 </select>
             </div>
-            <button onClick={ExchangeBox}>f</button>
+            
             
         </div>
     )

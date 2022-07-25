@@ -19,6 +19,7 @@ const h1 = {
 const text = {
     fontSize: '20px',
     textAlign: 'center',
+    fontWeight: 'bold',
 }
 
 
@@ -31,6 +32,7 @@ export default function homeBody() {
             <div>
                 <h1 style={h1}>Buy & Sell Crypto Instantly</h1>
                 <p style={text}>The most trusted cryptocurrency trading platform</p>
+                <p style={text}>No KYC · Low Fees · Community Driven</p>
             </div>
             
             {/* exchange thing */}
