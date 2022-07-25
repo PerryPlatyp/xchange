@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import btcLogo from "../../public/logo.png"
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
-import { useEffect } from 'react';
+
 const style = {
     height: '100px',
     width: '50%',
@@ -160,9 +160,7 @@ function redirect() {
 }
 
 export default function exchagnebox() {
-    useEffect(() => {
-        ExchangeBox();
-    });
+    
     return (
         <div>
 
