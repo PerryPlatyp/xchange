@@ -24,6 +24,9 @@ const text = {
 
 
 
+
+
+
 export default function homeBody() {
     return (
         <div style={sussywussy}>
@@ -37,6 +40,9 @@ export default function homeBody() {
             
             {/* exchange thing */}
                 {<ExchangeBox />}    
+
+            {/* submit button */}
+            
 
         </div>
     )

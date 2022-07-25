@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import btcLogo from "../../public/logo.png"
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
-
-
+import { useEffect } from 'react';
 const style = {
     height: '100px',
     width: '50%',
@@ -131,17 +130,49 @@ const inpootsamount = {
     
 
 }
+const bstyle = {
+    height: '50px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    top: '10%',
+}
+
+const buttonspace = {
+    height: '100px',
+    width: '200px',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    // make a minty green background
+    backgroundColor: '#98FF98',
+    borderRadius: '10px',
+    border: 'none',
+    // make text color grey
+    color: '#000',
+}
+
+// when the page loads, run this function
+function redirect() {
+    var currencybegin = document.getElementById("currency1").value;
+    var currencyend = document.getElementById("currency2").value;
+    window.location.href = "/exchange?currency1=" + currencybegin + "&currency2=" + currencyend;
+}
 
 export default function exchagnebox() {
-
+    useEffect(() => {
+        ExchangeBox();
+    });
     return (
+        <div>
 
+        
         <div style={style}>
             <div style={inpootamount}>
-                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} />
+                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} autoComplete="off" />
             </div>
             <div className="dropbutton"style={fagstyle}>
-                <select name="" id="currency1" style={buttonstyle}>
+                <select name="" id="currency1" style={buttonstyle} onChange={ExchangeBox}>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
                     <option value="ripple">XRP</option>
@@ -155,7 +186,7 @@ export default function exchagnebox() {
                 <input type="text" placeholder="Amount" id='c2amount' style={inpootsamount} readOnly />
             </div>
             <div className="dropbutton"style={fagstyle}>
-                <select name="" id="currency2" style={buttonstyle}>
+                <select name="" id="currency2" style={buttonstyle} onChange={ExchangeBox}>
                     <option value="monero">XMR</option>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
@@ -163,8 +194,18 @@ export default function exchagnebox() {
                     <option value="litecoin">LTC</option>
                 </select>
             </div>
+
+
             
             
+        </div>
+
+        <div>
+
+        </div>
+            <div style={bstyle}>
+                <button style={buttonspace} onClick={redirect}>Exchange</button>
+            </div>
         </div>
     )
 }
