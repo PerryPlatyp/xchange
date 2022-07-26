@@ -184,7 +184,7 @@ export default function Exchagnebox() {
                         setTimeout(() => {
                             ExchangeBox();
                         }
-                        , 1000);
+                        , 500);
                     }
                 } autoComplete="off" maxLength="10" />
             </div>
