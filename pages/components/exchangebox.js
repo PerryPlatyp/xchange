@@ -78,7 +78,7 @@ async function ExchangeBox() {
         c1amount = 0;
     }
 
-
+    
 
     const link1 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency1 + "&vs_currencies=usd";
     // make a fetch request to the link
@@ -198,7 +198,7 @@ export default function Exchagnebox() {
                         }
                         , 500);
                     }
-                } autoComplete="off" maxLength="10" />
+                } autoComplete="off" maxLength="6" />
             </div>
             <div className="dropbutton"style={fagstyle}>
                 <select name="" id="currency1" style={buttonstyle} onChange={Exchagnebox}>
