@@ -179,16 +179,12 @@ export default function Exchagnebox() {
         
         <div style={style}>
             <div style={inpootamount}>
-                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} autoComplete="off" maxLength="10" />
+                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={
+                    setTimeout(() => {Exchagnebox();}, 1000)
+                } autoComplete="off" maxLength="10" />
             </div>
             <div className="dropbutton"style={fagstyle}>
-                <select name="" id="currency1" style={buttonstyle} onChange={
-                    // set a delay so that the ExchangeBox function is only called after the user has stopped typing
-                    setTimeout(() => {
-                        ExchangeBox();
-                    }, 1000)
-
-                }>
+                <select name="" id="currency1" style={buttonstyle} onChange={Exchagnebox}>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
                     <option value="ripple">XRP</option>
