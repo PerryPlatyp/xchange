@@ -168,7 +168,7 @@ export default function exchagnebox() {
         
         <div style={style}>
             <div style={inpootamount}>
-                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} autoComplete="off" />
+                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} autoComplete="off" maxLength="10" />
             </div>
             <div className="dropbutton"style={fagstyle}>
                 <select name="" id="currency1" style={buttonstyle} onChange={ExchangeBox}>
