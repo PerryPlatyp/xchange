@@ -3,6 +3,7 @@ import btcLogo from "../../public/logo.png"
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 import { useEffect } from 'react';
 
+
 const style = {
     height: '100px',
     width: '50%',
@@ -185,8 +186,8 @@ export default function Exchagnebox() {
                     // set a delay so that the ExchangeBox function is only called after the user has stopped typing
                     setTimeout(() => {
                         ExchangeBox();
-                    })
-                    
+                    }, 1000)
+
                 }>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
