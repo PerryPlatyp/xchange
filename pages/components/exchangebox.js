@@ -62,6 +62,7 @@ const hstyle = {
 
 
 async function ExchangeBox() {
+    // 
     var currency1 = document.getElementById("currency1").value;
     var currency2 = document.getElementById("currency2").value;
     
@@ -180,7 +181,13 @@ export default function Exchagnebox() {
                 <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} autoComplete="off" maxLength="10" />
             </div>
             <div className="dropbutton"style={fagstyle}>
-                <select name="" id="currency1" style={buttonstyle} onChange={ExchangeBox}>
+                <select name="" id="currency1" style={buttonstyle} onChange={
+                    // set a delay so that the ExchangeBox function is only called after the user has stopped typing
+                    setTimeout(() => {
+                        ExchangeBox();
+                    })
+                    
+                }>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
                     <option value="ripple">XRP</option>
