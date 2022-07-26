@@ -7,6 +7,7 @@ export default function F(){
         <div>
             <p>{query.currency1}</p>
             <p>{query.currency2}</p>
+            <p>{query.c1amount}</p>
         </div>
     )
 }

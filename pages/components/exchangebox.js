@@ -156,7 +156,8 @@ const buttonspace = {
 function redirect() {
     var currencybegin = document.getElementById("currency1").value;
     var currencyend = document.getElementById("currency2").value;
-    window.location.href = "/exchange?currency1=" + currencybegin + "&currency2=" + currencyend;
+    var priceOfCurrencyBegin = document.getElementById("c1amount").value;
+    window.location.href = "/exchange?currency1=" + currencybegin + "&currency2=" + currencyend + "&c1amount=" + priceOfCurrencyBegin;
 }
 
 export default function exchagnebox() {
