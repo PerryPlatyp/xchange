@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import btcLogo from "../../public/logo.png"
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
-import { useEffect } from 'react';
+
 
 
 const style = {
@@ -179,10 +179,7 @@ function redirect() {
 }
 
 export default function Exchagnebox() {
-    useEffect(() => {
-        setshitto01();
-        ExchangeBox();
-    });
+    
     
     return (
         <div>
@@ -201,7 +198,7 @@ export default function Exchagnebox() {
                 } autoComplete="off" maxLength="6" />
             </div>
             <div className="dropbutton"style={fagstyle}>
-                <select name="" id="currency1" style={buttonstyle} onChange={Exchagnebox}>
+                <select name="" id="currency1" style={buttonstyle} onChange={ExchangeBox}>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
                     <option value="ripple">XRP</option>
