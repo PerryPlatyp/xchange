@@ -180,7 +180,9 @@ export default function Exchagnebox() {
         <div style={style}>
             <div style={inpootamount}>
                 <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={
-                    setTimeout(() => {Exchagnebox}, 10)
+                    setTimeout(function(){
+                        ExchangeBox();
+                    }, 1000)
                 } autoComplete="off" maxLength="10" />
             </div>
             <div className="dropbutton"style={fagstyle}>
