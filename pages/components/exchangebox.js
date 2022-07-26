@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import btcLogo from "../../public/logo.png"
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+import { useEffect } from 'react';
 
 const style = {
     height: '100px',
@@ -152,6 +153,10 @@ const buttonspace = {
     color: '#000',
 }
 
+function setshitto01(){
+    document.getElementById("c1amount").value = "0.1";
+}
+
 // when the page loads, run this function
 function redirect() {
     var currencybegin = document.getElementById("currency1").value;
@@ -161,8 +166,11 @@ function redirect() {
 }
 
 export default function exchagnebox() {
-    // set the value of id with c1amount to 0.1
-    document.getElementById("c1amount").value = 0.1;
+    useEffect(() => {
+        setshitto01();
+        ExchangeBox();
+    });
+    
     return (
         <div>
 
