@@ -161,7 +161,8 @@ function redirect() {
 }
 
 export default function exchagnebox() {
-    
+    // set the value of id with c1amount to 0.1
+    document.getElementById("c1amount").value = 0.1;
     return (
         <div>
 
