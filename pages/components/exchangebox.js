@@ -165,7 +165,7 @@ function redirect() {
     window.location.href = "/exchange?currency1=" + currencybegin + "&currency2=" + currencyend + "&c1amount=" + priceOfCurrencyBegin;
 }
 
-export default function exchagnebox() {
+export default function Exchagnebox() {
     useEffect(() => {
         setshitto01();
         ExchangeBox();
