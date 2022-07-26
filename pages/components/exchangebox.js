@@ -182,7 +182,7 @@ export default function Exchagnebox() {
                 <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={
                     setTimeout(function(){
                         ExchangeBox();
-                    }, 1000)
+                    }, 1)
                 } autoComplete="off" maxLength="10" />
             </div>
             <div className="dropbutton"style={fagstyle}>
