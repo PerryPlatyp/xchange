@@ -68,6 +68,12 @@ async function ExchangeBox() {
     
     var c1amount = document.getElementById("c1amount").value;
 
+    // if c1amount is empty, set it to 0
+    if (c1amount == "") {
+        c1amount = 0;
+    }
+    
+
     const link1 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency1 + "&vs_currencies=usd";
     // make a fetch request to the link
     var c1price = await fetch(link1)
