@@ -63,48 +63,46 @@ const hstyle = {
 
 
 async function ExchangeBox() {
-    setTimeout(() => {
-        var currency1 = document.getElementById("currency1").value;
-        var currency2 = document.getElementById("currency2").value;
-        
-        var c1amount = document.getElementById("c1amount").value;
-
-        const link1 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency1 + "&vs_currencies=usd";
-        // make a fetch request to the link
-        var c1price = await fetch(link1)
-            .then(response => response.json())
-            .then(data => {
-                return data[currency1].usd;
-            }
-            )
-            .catch(error => {
-                console.log(error);
-            }
-            )
-
-
-        
-        const link2 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency2 + "&vs_currencies=usd";
-        // make a fetch request to the link
-        var c2price = await fetch(link2)
-            .then(response => response.json())
-            .then(data => {
-                return data[currency2].usd;
-            }
-            )
-            .catch(error => {
-                console.log(error);
-            }
-            )
-
-        
-        var c2amount = c1amount * c1price / c2price;
-        // only keep 6 decimal places
-        c2amount = c2amount.toFixed(6);
-        document.getElementById("c2amount").value = c2amount;
-    }, 1000);
-    // 
+    var currency1 = document.getElementById("currency1").value;
+    var currency2 = document.getElementById("currency2").value;
     
+    var c1amount = document.getElementById("c1amount").value;
+
+    const link1 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency1 + "&vs_currencies=usd";
+    // make a fetch request to the link
+    var c1price = await fetch(link1)
+        .then(response => response.json())
+        .then(data => {
+            return data[currency1].usd;
+        }
+        )
+        .catch(error => {
+            console.log(error);
+        }
+        )
+
+
+    
+    const link2 = "https://api.coingecko.com/api/v3/simple/price?ids=" + currency2 + "&vs_currencies=usd";
+    // make a fetch request to the link
+    var c2price = await fetch(link2)
+        .then(response => response.json())
+        .then(data => {
+            return data[currency2].usd;
+        }
+        )
+        .catch(error => {
+            console.log(error);
+        }
+        )
+
+    
+    var c2amount = c1amount * c1price / c2price;
+    // only keep 6 decimal places
+    c2amount = c2amount.toFixed(6);
+    document.getElementById("c2amount").value = c2amount;
+    
+
     
 
 
@@ -180,7 +178,15 @@ export default function Exchagnebox() {
         
         <div style={style}>
             <div style={inpootamount}>
-                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={ExchangeBox} autoComplete="off" maxLength="10" />
+                <input type="text" placeholder="Amount" style={inpootamount} id="c1amount" onChange={
+                    // only run this function after 1 second
+                    () => {
+                        setTimeout(() => {
+                            ExchangeBox();
+                        }
+                        , 1000);
+                    }
+                } autoComplete="off" maxLength="10" />
             </div>
             <div className="dropbutton"style={fagstyle}>
                 <select name="" id="currency1" style={buttonstyle} onChange={Exchagnebox}>
